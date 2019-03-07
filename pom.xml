@@ -38,9 +38,11 @@
         </dependency>
 
         <!--feign-->
+        <!--注意此处的依赖是SpringBoot2.0以后专用的，
+            如果您使用的SpringBoot版本低于2.0请使用spring-cloud-starter-feign-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-feign</artifactId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
         <!-- druid数据库连接池 -->

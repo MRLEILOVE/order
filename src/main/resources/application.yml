@@ -4,6 +4,7 @@ eureka:
         service-url:
             defaultZone: http://localhost:8761/eureka/
     instance:
+        # IP
         hostname: localhost
         instance-id: ${spring.application.name}:${server.port}:@project.version@
 # MyBatis配置
