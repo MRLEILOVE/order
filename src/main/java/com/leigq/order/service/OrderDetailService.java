@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * 订单详情
  * <p>
@@ -39,5 +41,22 @@ public class OrderDetailService {
      */
     public Long saveOrderDetails(OrderDetail orderDetail) {
         return orderDetailMapper.insertSelective(orderDetail);
+    }
+
+    /**
+     * 根据订单id获取订单明细
+     * <br>创建人： leiGQ
+     * <br>创建时间： 2019-03-07 17:13
+     * <p>
+     * 修改人： <br>
+     * 修改时间： <br>
+     * 修改备注： <br>
+     * </p>
+     * <br>
+     * @param orderId 订单id
+     * @return 订单明细
+     */
+    public List<OrderDetail> listOrderDetails(Long orderId) {
+        return orderDetailMapper.listOrderDetails(orderId);
     }
 }

@@ -1,17 +1,16 @@
-package com.leigq.order.domain.entity;
+package com.leigq.order.domain.entity.client;
 
 import com.leigq.order.bean.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 /**
- * 订单实体
+ * 商品实体
  * <p>
  * 创建人：LeiGQ <br>
- * 创建时间：2019-03-06 20:45 <br>
+ * 创建时间：2019-03-06 20:40 <br>
  * <p>
  * 修改人： <br>
  * 修改时间： <br>
@@ -20,19 +19,21 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class OrderMaster extends BaseEntity {
-    /**
-	* 编号
-	*/
-    private String code;
+public class Commodity extends BaseEntity {
 
     /**
-	* 金额
+	* 商品名称
 	*/
-    private BigDecimal amount;
+    private String name;
 
     /**
-	* 0:未支付;1:已支付
+	* 单价
 	*/
-    private Boolean status;
+    private BigDecimal price;
+
+    /**
+	* 类型Id
+	*/
+    private Long ctId;
+
 }

@@ -14,6 +14,8 @@ mybatis:
     # 设置自动驼峰命名转换
     configuration:
       mapUnderscoreToCamelCase: true
+      # 使用mybatis插入自增主键ID的数据后返回自增的ID，配合keyProperty="id"使用
+      use-generated-keys: true
 
 # 服务器配置
 server:

@@ -1,7 +1,9 @@
 package com.leigq.order.domain.mapper;
 
 import com.leigq.order.domain.entity.OrderDetail;
-import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Mapper;import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * 订单详情
@@ -27,4 +29,20 @@ public interface OrderDetailMapper {
     int updateByPrimaryKeySelective(OrderDetail record);
 
     int updateByPrimaryKey(OrderDetail record);
+
+    /**
+     * 根据订单id获取订单明细
+     * <br>创建人： leiGQ
+     * <br>创建时间： 2019-03-07 17:13
+     * <p>
+     * 修改人： <br>
+     * 修改时间： <br>
+     * 修改备注： <br>
+     * </p>
+     * <br>
+     *
+     * @param orderId 订单id
+     * @return 订单明细
+     */
+    List<OrderDetail> listOrderDetails(@Param("orderId")Long orderId);
 }

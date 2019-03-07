@@ -39,7 +39,8 @@
 
         <!--feign-->
         <!--注意此处的依赖是SpringBoot2.0以后专用的，
-            如果您使用的SpringBoot版本低于2.0请使用spring-cloud-starter-feign-->
+            如果您使用的SpringBoot版本低于2.0请使用spring-cloud-starter-feign
+            详见：https://www.cnblogs.com/zhixiang-org-cn/p/9297679.html-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>

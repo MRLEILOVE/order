@@ -1,13 +1,22 @@
 package com.leigq.order.controller;
 
 import com.leigq.order.bean.Response;
+import com.leigq.order.client.CommodityClient;
+import com.leigq.order.domain.entity.OrderDetail;
 import com.leigq.order.domain.entity.OrderMaster;
+import com.leigq.order.domain.entity.client.Commodity;
+import com.leigq.order.service.OrderDetailService;
 import com.leigq.order.service.OrderMasterService;
+import com.leigq.order.util.RandomUtils;
 import com.leigq.order.vo.OrderVO;
+import org.apache.commons.collections4.CollectionUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -30,6 +39,12 @@ public class OrderMasterController {
     @Autowired
     private Response response;
 
+    @Resource
+    private CommodityClient commodityClient;
+
+    @Autowired
+    private OrderDetailService orderDetailService;
+
     /**
      * 添加订单
      * <br>创建人： leiGQ
@@ -45,15 +60,31 @@ public class OrderMasterController {
      */
     @PostMapping("/orders")
     public Response saveOrders(OrderVO orderVO) {
-
-//        Long orderId = orderMasterService.saveOrders(orderVO);
-//        if (orderId > 0) {
-//            orderMaster = orderMasterService.getOrders(orderId);
-//            if (Objects.nonNull(orderMaster)) {
-//                return response.success("添加订单成功！", orderMaster);
-//            }
-//        }
-        return response.failure("添加订单失败！", null);
+        //查询商品（调用商品服务，这里做简单一点，每次买一件商品；
+        // 真实项目是每次可买多件商品，而且还要扣库存，我这里就不写了，主要是熟悉Feign的使用）
+        final Commodity commodity = commodityClient.getCommodities(orderVO.getCId());
+        //添加订单
+        OrderMaster orderMaster = new OrderMaster();
+        //订单编号
+        orderMaster.setCode(RandomUtils.getNanoTimeRandom(12));
+        //订单金额
+        orderMaster.setAmount(commodity.getPrice());
+        if (orderMasterService.saveOrders(orderMaster) > 0) {
+            //添加订单详情
+            OrderDetail orderDetail = new OrderDetail();
+            orderDetail.setCId(orderVO.getCId());
+            orderDetail.setNumber(orderVO.getNumber());
+            orderDetail.setOmId(orderMaster.getId());
+            orderDetail.setPrice(commodity.getPrice());
+            if (orderDetailService.saveOrderDetails(orderDetail) > 0) {
+                orderMaster = orderMasterService.getOrders(orderMaster.getId());
+                BeanUtils.copyProperties(orderMaster, orderVO);
+                List<OrderDetail> orderDetails = orderDetailService.listOrderDetails(orderMaster.getId());
+                orderVO.setOrderDetails(orderDetails);
+                return response.success("下单成功！", orderVO);
+            }
+        }
+        return response.failure("下单失败，请稍候重试！", null);
     }
 
 

@@ -1,8 +1,10 @@
 package com.leigq.order.vo;
 
+import com.leigq.order.domain.entity.OrderDetail;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * 订单VO
@@ -32,5 +34,30 @@ public class OrderVO {
      * 0:未支付;1:已支付
      */
     private Boolean status;
+
+    /**
+     * 订单Id
+     */
+    private Long omId;
+
+    /**
+     * 商品Id
+     */
+    private Long cId;
+
+    /**
+     * 数量
+     */
+    private Short number;
+
+    /**
+     * 价格
+     */
+    private BigDecimal price;
+
+    /**
+     * 订单明细
+     */
+    private List<OrderDetail> orderDetails;
 
 }

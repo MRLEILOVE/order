@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import javax.annotation.Resource;
+
 /**
  * 远程调用客户端端简单测试
  * <p>
@@ -67,7 +69,7 @@ public class ClientController {
 
     /********************************我是分割线**********************************************************************/
 
-    @Autowired
+    @Resource
     private CommodityClient commodityClient;
 
     /**
