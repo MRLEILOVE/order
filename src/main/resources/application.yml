@@ -16,6 +16,8 @@ mybatis:
       mapUnderscoreToCamelCase: true
       # 使用mybatis插入自增主键ID的数据后返回自增的ID，配合keyProperty="id"使用
       use-generated-keys: true
+      # spring boot集成mybatis的方式打印sql：https://blog.csdn.net/qq_22194659/article/details/81120712
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 # 服务器配置
 server:
