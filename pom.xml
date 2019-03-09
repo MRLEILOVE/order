@@ -37,6 +37,12 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
+        <!--配置中心client端-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-client</artifactId>
+        </dependency>
+
         <!--feign-->
         <!--注意此处的依赖是SpringBoot2.0以后专用的，
             如果您使用的SpringBoot版本低于2.0请使用spring-cloud-starter-feign
