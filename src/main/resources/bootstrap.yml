@@ -15,6 +15,12 @@ spring:
           enabled: true
           service-id: CONFIG
         profile: dev
+    # rabbitmq配置（Spring-Boot默认配置就是下面这样，所以不配置也行，这里为了方便以后改）
+    rabbitmq:
+      host: localhost
+      port: 5672
+      username: guest
+      password: guest
 
 # 订单服务端
 # eureka server的端口不用默认值的话（8761），
