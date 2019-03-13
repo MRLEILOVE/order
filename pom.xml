@@ -55,6 +55,12 @@
             <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
 
+        <!--stream-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
+        </dependency>
+
         <!--feign-->
         <!--注意此处的依赖是SpringBoot2.0以后专用的，
             如果您使用的SpringBoot版本低于2.0请使用spring-cloud-starter-feign
