@@ -4,6 +4,7 @@ import com.leigq.order.bean.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -20,7 +21,10 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class OrderMaster extends BaseEntity {
+public class OrderMaster extends BaseEntity implements Serializable {
+
+    private static final long serialVersionUID = 6394529542497394573L;
+
     /**
 	* 编号
 	*/

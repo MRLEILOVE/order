@@ -1,4 +1,4 @@
-package com.leigq.order.message;
+package com.leigq.order.message.rabbitmq;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.Exchange;
@@ -6,7 +6,6 @@ import org.springframework.amqp.rabbit.annotation.Queue;
 import org.springframework.amqp.rabbit.annotation.QueueBinding;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
-import reactor.util.concurrent.Queues;
 
 /**
  * MQ测试客户端，接受消息方

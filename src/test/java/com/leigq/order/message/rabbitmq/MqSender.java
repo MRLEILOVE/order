@@ -1,5 +1,6 @@
-package com.leigq.order;
+package com.leigq.order.message.rabbitmq;
 
+import com.leigq.order.OrderApplicationTests;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -19,7 +20,7 @@ import java.time.LocalDateTime;
  * </p>
  */
 @Slf4j
-public class MqSender extends OrderApplicationTests{
+public class MqSender extends OrderApplicationTests {
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
