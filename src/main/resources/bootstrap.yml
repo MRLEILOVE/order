@@ -12,15 +12,15 @@ eureka:
 
 # 这里的配置直接从配置中心获取
 # 配置中心地址如下：
-# http://localhost:8083/springcloud-order-dev.yml
+# http://localhost:8083/order-dev.yml
 # service-id: CONFIG配置指向->localhost:8083,也就是配置中心服务
-# name: order指向->springcloud-order, 也就是当前应用名称
+# name: order指向->order, 也就是当前应用名称，配置中心中配置文件名(文件名和这个name必须一致，不然获取不到配置)
 # profile: dev指向->dev, 开发环境
 # 已上信息就可以拼接一个完整的配置文件地址
 # 此配置文件更名为bootstrap，可以百度下spring-cloud:bootstrap
 spring:
     application:
-        name: springcloud-order
+        name: order
     cloud:
         config:
             discovery:
