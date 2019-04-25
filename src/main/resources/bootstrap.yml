@@ -33,6 +33,13 @@ spring:
         port: 5672
         username: guest
         password: guest
+    # 链路监控
+    zipkin:
+      base-url: http://localhost:9411/
+    sleuth:
+      sampler:
+        # 链路监控抽样百分百，默认0.1(10%)
+        probability: 1
 
 ###############Actuator监控端点##############
 # 全部端口开启, 默认开启的监控路径只有3个, [/actuator/health],[/actuator/info],[/actuator]
@@ -45,6 +52,11 @@ management:
   endpoint:
     health:
       show-details: ALWAYS
+
+# 修改日志打印级别
+logging:
+  level:
+    org.springframework.cloud.openfeign: debug
 
 
 
