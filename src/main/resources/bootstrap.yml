@@ -34,6 +34,18 @@ spring:
         username: guest
         password: guest
 
+###############Actuator监控端点##############
+# 全部端口开启, 默认开启的监控路径只有3个, [/actuator/health],[/actuator/info],[/actuator]
+# 参考:<a href="https://blog.csdn.net/l707268743/article/details/80999322">springboot 2.0.3中使用 actuator<a/>
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
+
 
 
 
