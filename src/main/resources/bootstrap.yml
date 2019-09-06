@@ -1,10 +1,11 @@
 # 订单服务端
 # eureka server的端口不用默认值的话（8761），
 # 则eureka客户端配置需放在本地，不然连接不上注册中心，从而获取不到配置中心的配置
+
 eureka:
     client:
         service-url:
-            defaultZone: http://localhost:8762/eureka/
+            defaultZone: http://localhost:8761/eureka/
     instance:
         # IP
         hostname: localhost
