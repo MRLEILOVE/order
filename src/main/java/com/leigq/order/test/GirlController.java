@@ -19,11 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GirlController {
 
-    @Autowired
-    private GirlConfig girlConfig;
+	@Autowired
+	private GirlConfig girlConfig;
 
-    @GetMapping("/girls")
-    public String getGirls() {
-        return String.format("姓名：%s, 年龄：%s", girlConfig.getName(), girlConfig.getAge());
-    }
+	@GetMapping("/girls")
+	public String getGirls() {
+		return String.format("姓名：%s, 年龄：%s", girlConfig.getName(), girlConfig.getAge());
+	}
 }
